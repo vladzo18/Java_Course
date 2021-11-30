@@ -1,10 +1,9 @@
 package lab_2;
 
-import java.io.IOException;
 import java.io.Serializable;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
        LinkedList<Integer> list = new LinkedList<Integer>();
         list.add(3);
         list.add(5);
