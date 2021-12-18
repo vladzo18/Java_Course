@@ -1,7 +1,6 @@
 package lab_5;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class TaskOne {
 
@@ -17,6 +16,5 @@ public class TaskOne {
         double[] targetArray = Arrays.stream(array).sorted().toArray();
         return targetArray[targetArray.length - 1];
     }
-
 
 }
