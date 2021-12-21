@@ -3,6 +3,9 @@ package lab_2;
 import java.io.Serializable;
 
 public class Main {
+
+    private static final String _fileName = "file.txt";
+
     public static void main(String[] args)  {
        LinkedList<Integer> list = new LinkedList<Integer>();
         list.add(3);
@@ -18,6 +21,7 @@ public class Main {
         list.remove(7);
         printArray(list.toArray());
 
+        //==========================================
         ArrayList<Double> arrayList = new ArrayList<Double>();
         arrayList.add(3.0);
         arrayList.add(8.0);
@@ -37,9 +41,11 @@ public class Main {
         System.out.println("");
         System.out.println(arrayList.contains(10.0));
 
+        //==========================================
         TestClass tc = new TestClass();
-        byte[] bytes = SerializationUtil.serialize(tc);
-        TestClass deserelizedTestClas = (TestClass) SerializationUtil.deserialize(bytes);
+        SerializationUtil.serialize(tc, _fileName);
+        TestClass deserelizedTestClas = (TestClass) SerializationUtil.deserialize(_fileName);
+
         System.out.print(deserelizedTestClas.name + " " + deserelizedTestClas.age);
     }
 
