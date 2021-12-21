@@ -3,25 +3,25 @@ package lab_2;
 import java.io.*;
 
 public class SerializationUtil {
-    public static byte[] serialize(Object object) {
-        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            try (ObjectOutputStream oos = new ObjectOutputStream(baos)) {
+
+    public static void serialize(Object object, String fileName) {
+        try (FileOutputStream fos = new FileOutputStream(fileName);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+
                oos.writeObject(object);
-            }
-            return baos.toByteArray();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
+        } catch (Exception e) { }
+    }
+
+    public static Object deserialize(String fileName) {
+        try (FileInputStream fis = new FileInputStream(fileName);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fis)){
+
+            return objectInputStream.readObject();
+
+        }catch (Exception e) {}
+
         return null;
     }
-    public static Object deserialize(byte[] bytes) {
-        try (ByteArrayInputStream bais = new ByteArrayInputStream(bytes)) {
-            try (ObjectInputStream ois = new ObjectInputStream(bais)) {
-                return ois.readObject();
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return null;
-    }
+
 }
