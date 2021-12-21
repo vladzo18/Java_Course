@@ -41,7 +41,7 @@ public class TaskOne {
 
     private static void printSideDiagonalsEvenNumbers(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i][arr.length - (i + 1)] + " ");
+            if ((i + 1) % 2 == 0) System.out.print(arr[i][arr.length - (i + 1)] + " ");
         }
     }
 

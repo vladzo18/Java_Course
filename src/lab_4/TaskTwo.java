@@ -1,9 +1,6 @@
 package lab_4;
 
-import java.util.Arrays;
-import java.util.OptionalInt;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class TaskTwo {
 
@@ -14,11 +11,11 @@ public class TaskTwo {
         fillArrayRandomValues(arr, 0, 9);
         printArray(arr);
 
-        OptionalInt result = Arrays.stream(arr)
+        OptionalDouble result = Arrays.stream(arr)
                 .filter(item -> item % 2 == 0)
-                .reduce((a, b) -> a + b);
+                .average();
 
-        System.out.println(result.getAsInt());
+        System.out.println(result.getAsDouble());
     }
 
     private static void printArray(int[] arr) {

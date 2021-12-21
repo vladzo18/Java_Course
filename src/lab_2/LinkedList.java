@@ -31,6 +31,7 @@ public class LinkedList<T> {
 
     public void remove(T element) {
        Node removingElement = findElement(element);
+       if (removingElement == null) return;
        removingElement.getPrevious().setNext(removingElement.getNext());
        removingElement.getNext().setPrevious(removingElement.getPrevious());
        removingElement = null;

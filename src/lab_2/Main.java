@@ -10,12 +10,13 @@ public class Main {
         list.add(7);
         list.add(9);
         list.add(6);
+        list.add(7);
 
         printArray(list.toArray());
         System.out.println("");
         System.out.println(list.contains(9));
         System.out.println(list.contains(-5));
-        list.remove(7);
+        list.remove(70);
         printArray(list.toArray());
 
         ArrayList<Double> arrayList = new ArrayList<Double>();
@@ -26,16 +27,15 @@ public class Main {
         arrayList.add(3.0);
         arrayList.add(8.0);
         arrayList.add(7.0);
-        arrayList.add(3.0);
-        arrayList.add(8.0);
-        arrayList.add(7.0);
-        arrayList.add(3.0);
-        arrayList.add(8.0);
-        arrayList.add(7.0);
+
+
         System.out.println("");
         printArray(arrayList.toArray());
         System.out.println("");
-        System.out.println(arrayList.contains(10.0));
+        arrayList.remove(10.0);
+        printArray(arrayList.toArray());
+        System.out.println("");
+        System.out.println(arrayList.contains(7.0));
 
         TestClass tc = new TestClass();
         byte[] bytes = SerializationUtil.serialize(tc);

@@ -29,6 +29,7 @@ public class ArrayList<T> {
 
     public void remove(T element) {
         int indexOfRemovingElement = indexOf(element);
+        if (indexOfRemovingElement == -1) return;
 
         for (int i = indexOfRemovingElement; i < _currentEndElementIndex - 1; i++) {
             _array[i] = _array[i + 1];
@@ -56,7 +57,7 @@ public class ArrayList<T> {
 
     private int indexOf(T element) {
         for (int i = 0; i < _currentEndElementIndex; i++) {
-            if (_array[i] == element) {
+            if (_array[i].equals(element)) {
                 return i;
             }
         }
