@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Main {
     public static void main(String[] args)  {
        LinkedList<Integer> list = new LinkedList<Integer>();
+        list.add(7);
         list.add(3);
         list.add(5);
         list.add(7);
@@ -16,10 +17,11 @@ public class Main {
         System.out.println("");
         System.out.println(list.contains(9));
         System.out.println(list.contains(-5));
-        list.remove(70);
+        list.remove(7);
         printArray(list.toArray());
 
         ArrayList<Double> arrayList = new ArrayList<Double>();
+        arrayList.add(10.0);
         arrayList.add(3.0);
         arrayList.add(8.0);
         arrayList.add(7.0);
@@ -27,7 +29,7 @@ public class Main {
         arrayList.add(3.0);
         arrayList.add(8.0);
         arrayList.add(7.0);
-
+        arrayList.add(10.0);
 
         System.out.println("");
         printArray(arrayList.toArray());

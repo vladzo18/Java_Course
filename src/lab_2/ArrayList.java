@@ -29,13 +29,15 @@ public class ArrayList<T> {
 
     public void remove(T element) {
         int indexOfRemovingElement = indexOf(element);
-        if (indexOfRemovingElement == -1) return;
 
-        for (int i = indexOfRemovingElement; i < _currentEndElementIndex - 1; i++) {
-            _array[i] = _array[i + 1];
+        while (indexOfRemovingElement != -1) {
+            for (int i = indexOfRemovingElement; i < _currentEndElementIndex - 1; i++) {
+                _array[i] = _array[i + 1];
+            }
+            _currentEndElementIndex--;
+
+            indexOfRemovingElement = indexOf(element);
         }
-
-        _currentEndElementIndex--;
     }
 
     public boolean contains(T element) {

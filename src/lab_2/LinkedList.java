@@ -15,39 +15,41 @@ public class LinkedList<T> {
         if (_head == null) {
             _head = new Node<T>(element);
             _root = _head;
-            _size++;
         } else {
             Node<T> node = new Node<T>(element);
             _root.setNext(node);
             node.setPrevious(_root);
-
-            if (_root.getNext() != null) {
-                _root = node;
-            }
-
-            _size++;
+            _root = node;
         }
+
+        _size++;
     }
 
     public void remove(T element) {
        Node removingElement = findElement(element);
-       if (removingElement == null) return;
-       removingElement.getPrevious().setNext(removingElement.getNext());
-       removingElement.getNext().setPrevious(removingElement.getPrevious());
-       removingElement = null;
-       _size--;
+
+       while (removingElement != null) {
+           if (removingElement == _head) {
+               _head = removingElement.getNext();
+               removingElement.setNext(null);
+               removingElement.setPrevious(null);
+           } else if (removingElement == _root) {
+               _root = removingElement.getPrevious();
+               removingElement.setNext(null);
+               removingElement.setPrevious(null);
+           } else {
+               removingElement.getPrevious().setNext(removingElement.getNext());
+               removingElement.getNext().setPrevious(removingElement.getPrevious());
+           }
+
+           _size--;
+           removingElement = findElement(element);
+       }
     }
 
     public boolean contains(T element) {
-        Node<T> currentElement = _head;
-
-        for (int i = 0; i < _size; i++) {
-            if (currentElement.getElement() == element) {
-                return true;
-            }
-            if (currentElement.getNext() != null){
-                currentElement = currentElement.getNext();
-            }
+        if (findElement(element) != null) {
+            return true;
         }
 
         return false;
